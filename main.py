@@ -67,7 +67,7 @@ def create_task(task: TaskCreate):
         )
 
     new_task = {
-        "id": len(tasks) + 1,
+        "id": max(task["id"] for task in tasks) + 1 if tasks else 1,
         "title": task.title,
         "done": False
     }
